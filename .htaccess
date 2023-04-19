@@ -5,3 +5,13 @@ RewriteRule ^ /%1? [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+RewriteRule ^cerveza menu [L]
+RewriteRule ^ron menu [L]
+RewriteRule ^aguardiente menu [L]
+RewriteRule ^vino menu [L]
+RewriteRule ^whisky menu [L]
+RewriteRule ^tequila menu [L]
+RewriteRule ^ginebra menu [L]
+RewriteRule ^vodka menu [L]
+RewriteRule ^sin-alcohol menu [L]

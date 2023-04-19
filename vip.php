@@ -4,7 +4,7 @@
     if($_POST['email']){
         $from = $_POST['email'];
         $to = "contacto@gardenia-bar-cafe.com";
-        $subject = "Nueva susccripción";
+        $subject = "Nueva suscripción";
         $message = "Nuevo correo: ".$_POST['email'];
         $headers = "From:" . $from;
         $send_mail = mail($to,$subject,$message, $headers);

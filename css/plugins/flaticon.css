@@ -1,142 +1,278 @@
-	/*
-  	Flaticon icon font: Flaticon
-  	Creation date: 16/12/2020 19:39
-  	*/
 
 @font-face {
-  font-family: "Flaticon";
-  src: url("../../fonts/Flaticon.eot");
-  src: url("../../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
-       url("../../fonts/Flaticon.woff2") format("woff2"),
-       url("../../fonts/Flaticon.woff") format("woff"),
-       url("../../fonts/Flaticon.ttf") format("truetype"),
-       url("../../fonts/Flaticon.svg#Flaticon") format("svg");
-  font-weight: normal;
+  font-family: "flaticon_gardenia";
+  src: url("./../../fonts/flaticon_gardenia.ttf?b5541a4e361f344a08c7a82b02ff03be") format("truetype"),
+url("./../../fonts/flaticon_gardenia.woff?b5541a4e361f344a08c7a82b02ff03be") format("woff"),
+url("./../../fonts/flaticon_gardenia.woff2?b5541a4e361f344a08c7a82b02ff03be") format("woff2"),
+url("./../../fonts/flaticon_gardenia.eot?b5541a4e361f344a08c7a82b02ff03be#iefix") format("embedded-opentype"),
+url("./../../fonts/flaticon_gardenia.svg?b5541a4e361f344a08c7a82b02ff03be#flaticon_gardenia") format("svg");
+}
+
+[class^="flaticon-gardenia-"]:before, [class*=" flaticon-gardenia-"]:before,
+[class^="flaticon-gardenia-"]:after, [class*=" flaticon-gardenia-"]:after {   
+  font-family: flaticon_gardenia !important;
   font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  @font-face {
-    font-family: "Flaticon";
-    src: url("../../fonts/Flaticon.svg#Flaticon") format("svg");
-  }
-}
 
-[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
-  font-family: Flaticon;
-    font-style: normal;
+.flaticon-gardenia-wine-glass:before {
+    content: "\f101";
 }
-
-.flaticon-add:before { content: "\f100"; }
-.flaticon-plus-symbol:before { content: "\f101"; }
-.flaticon-burger:before { content: "\f102"; }
-.flaticon-dish:before { content: "\f103"; }
-.flaticon-fast-food:before { content: "\f104"; }
-.flaticon-fast-food-1:before { content: "\f105"; }
-.flaticon-pizza:before { content: "\f106"; }
-.flaticon-hamburger:before { content: "\f107"; }
-.flaticon-fork:before { content: "\f108"; }
-.flaticon-pizza-slice:before { content: "\f109"; }
-.flaticon-fast-food-2:before { content: "\f10a"; }
-.flaticon-kebab:before { content: "\f10b"; }
-.flaticon-hot-dog:before { content: "\f10c"; }
-.flaticon-burger-1:before { content: "\f10d"; }
-.flaticon-coffee-cup:before { content: "\f10e"; }
-.flaticon-hamburger-1:before { content: "\f10f"; }
-.flaticon-spaguetti:before { content: "\f110"; }
-.flaticon-salad:before { content: "\f111"; }
-.flaticon-cooking:before { content: "\f112"; }
-.flaticon-diet:before { content: "\f113"; }
-.flaticon-taco:before { content: "\f114"; }
-.flaticon-clock:before { content: "\f115"; }
-.flaticon-food-serving:before { content: "\f116"; }
-.flaticon-vegetables:before { content: "\f117"; }
-.flaticon-restaurant:before { content: "\f118"; }
-.flaticon-taco-1:before { content: "\f119"; }
-.flaticon-tray:before { content: "\f11a"; }
-.flaticon-restaurant-1:before { content: "\f11b"; }
-.flaticon-whisky:before { content: "\f11c"; }
-.flaticon-salad-1:before { content: "\f11d"; }
-.flaticon-cake:before { content: "\f11e"; }
-.flaticon-fast-food-3:before { content: "\f11f"; }
-.flaticon-apple:before { content: "\f120"; }
-.flaticon-waiter:before { content: "\f121"; }
-.flaticon-food:before { content: "\f122"; }
-.flaticon-vegan-food:before { content: "\f123"; }
-.flaticon-tray-1:before { content: "\f124"; }
-.flaticon-cutlery:before { content: "\f125"; }
-.flaticon-vegan-food-1:before { content: "\f126"; }
-.flaticon-vegan-food-2:before { content: "\f127"; }
-.flaticon-tray-2:before { content: "\f128"; }
-.flaticon-fish:before { content: "\f129"; }
-.flaticon-knife:before { content: "\f12a"; }
-.flaticon-chicken-leg:before { content: "\f12b"; }
-.flaticon-gastronomy:before { content: "\f12c"; }
-.flaticon-coffee-cup-1:before { content: "\f12d"; }
-.flaticon-cake-1:before { content: "\f12e"; }
-.flaticon-cupcake:before { content: "\f12f"; }
-.flaticon-groceries:before { content: "\f130"; }
-.flaticon-lobster:before { content: "\f131"; }
-.flaticon-romantic-dinner:before { content: "\f132"; }
-.flaticon-croissant:before { content: "\f133"; }
-.flaticon-chef:before { content: "\f134"; }
-.flaticon-harvest:before { content: "\f135"; }
-.flaticon-sausages:before { content: "\f136"; }
-.flaticon-fried-potatoes:before { content: "\f137"; }
-.flaticon-hot-food:before { content: "\f138"; }
-.flaticon-wheat:before { content: "\f139"; }
-.flaticon-cutlery-1:before { content: "\f13a"; }
-.flaticon-soup:before { content: "\f13b"; }
-.flaticon-chefs-hat:before { content: "\f13c"; }
-.flaticon-boiled:before { content: "\f13d"; }
-.flaticon-cutlery-2:before { content: "\f13e"; }
-.flaticon-restaurant-2:before { content: "\f13f"; }
-.flaticon-take-away:before { content: "\f140"; }
-.flaticon-pumpkin:before { content: "\f141"; }
-.flaticon-cutlery-3:before { content: "\f142"; }
-.flaticon-roast-chicken:before { content: "\f143"; }
-.flaticon-cocktail:before { content: "\f144"; }
-.flaticon-menu:before { content: "\f145"; }
-.flaticon-cheese:before { content: "\f146"; }
-.flaticon-chicken-leg-1:before { content: "\f147"; }
-.flaticon-delivery-man:before { content: "\f148"; }
-.flaticon-beat:before { content: "\f149"; }
-.flaticon-fish-1:before { content: "\f14a"; }
-.flaticon-meat:before { content: "\f14b"; }
-.flaticon-spaghetti:before { content: "\f14c"; }
-.flaticon-coffee:before { content: "\f14d"; }
-.flaticon-guava:before { content: "\f14e"; }
-.flaticon-hamburger-2:before { content: "\f14f"; }
-.flaticon-pizza-1:before { content: "\f150"; }
-.flaticon-thanksgiving:before { content: "\f151"; }
-.flaticon-dinner:before { content: "\f152"; }
-.flaticon-fish-2:before { content: "\f153"; }
-.flaticon-noodle:before { content: "\f154"; }
-.flaticon-fast-food-4:before { content: "\f155"; }
-.flaticon-sausage:before { content: "\f156"; }
-.flaticon-gingerbread-man:before { content: "\f157"; }
-.flaticon-chef-1:before { content: "\f158"; }
-.flaticon-turkey:before { content: "\f159"; }
-.flaticon-coffee-1:before { content: "\f15a"; }
-.flaticon-coca-tea:before { content: "\f15b"; }
-.flaticon-wedding-cake:before { content: "\f15c"; }
-.flaticon-cupcake-1:before { content: "\f15d"; }
-.flaticon-fast-food-5:before { content: "\f15e"; }
-.flaticon-manufacturing:before { content: "\f15f"; }
-.flaticon-scooter:before { content: "\f160"; }
-.flaticon-review:before { content: "\f161"; }
-.flaticon-street-food:before { content: "\f162"; }
-.flaticon-sausage-1:before { content: "\f163"; }
-.flaticon-baking:before { content: "\f164"; }
-.flaticon-baking-1:before { content: "\f165"; }
-.flaticon-muffin:before { content: "\f166"; }
-.flaticon-hop:before { content: "\f167"; }
-.flaticon-nature:before { content: "\f168"; }
-.flaticon-organic:before { content: "\f169"; }
-.flaticon-carrot:before { content: "\f16a"; }
-.flaticon-food-delivery:before { content: "\f16b"; }
-.flaticon-pizza-box:before { content: "\f16c"; }
-.flaticon-pizza-box-1:before { content: "\f16d"; }
-.flaticon-pizza-deliver:before { content: "\f16e"; }
-.flaticon-delivery-man-1:before { content: "\f16f"; }
+.flaticon-gardenia-cocktail:before {
+    content: "\f102";
+}
+.flaticon-gardenia-coffee-cup:before {
+    content: "\f103";
+}
+.flaticon-gardenia-pink-lady:before {
+    content: "\f104";
+}
+.flaticon-gardenia-beverage:before {
+    content: "\f105";
+}
+.flaticon-gardenia-cola:before {
+    content: "\f106";
+}
+.flaticon-gardenia-cerveza:before {
+    content: "\f107";
+}
+.flaticon-gardenia-aguardiente:before {
+    content: "\f108";
+}
+.flaticon-gardenia-aguardiente-1:before {
+    content: "\f109";
+}
+.flaticon-gardenia-aguardiente-2:before {
+    content: "\f10a";
+}
+.flaticon-gardenia-copa-con-vino:before {
+    content: "\f10b";
+}
+.flaticon-gardenia-vino:before {
+    content: "\f10c";
+}
+.flaticon-gardenia-copa-de-vino:before {
+    content: "\f10d";
+}
+.flaticon-gardenia-vino-1:before {
+    content: "\f10e";
+}
+.flaticon-gardenia-vino-2:before {
+    content: "\f10f";
+}
+.flaticon-gardenia-vino-3:before {
+    content: "\f110";
+}
+.flaticon-gardenia-whisky:before {
+    content: "\f111";
+}
+.flaticon-gardenia-whisky-1:before {
+    content: "\f112";
+}
+.flaticon-gardenia-whisky-2:before {
+    content: "\f113";
+}
+.flaticon-gardenia-whisky-3:before {
+    content: "\f114";
+}
+.flaticon-gardenia-whisky-4:before {
+    content: "\f115";
+}
+.flaticon-gardenia-whisky-5:before {
+    content: "\f116";
+}
+.flaticon-gardenia-whisky-6:before {
+    content: "\f117";
+}
+.flaticon-gardenia-tequila:before {
+    content: "\f118";
+}
+.flaticon-gardenia-tequila-1:before {
+    content: "\f119";
+}
+.flaticon-gardenia-tequila-2:before {
+    content: "\f11a";
+}
+.flaticon-gardenia-tequila-3:before {
+    content: "\f11b";
+}
+.flaticon-gardenia-tequila-4:before {
+    content: "\f11c";
+}
+.flaticon-gardenia-tequila-5:before {
+    content: "\f11d";
+}
+.flaticon-gardenia-trago-de-tequila:before {
+    content: "\f11e";
+}
+.flaticon-gardenia-ginebra:before {
+    content: "\f11f";
+}
+.flaticon-gardenia-ginebra-1:before {
+    content: "\f120";
+}
+.flaticon-gardenia-ginebra-2:before {
+    content: "\f121";
+}
+.flaticon-gardenia-ginebra-3:before {
+    content: "\f122";
+}
+.flaticon-gardenia-cocteles:before {
+    content: "\f123";
+}
+.flaticon-gardenia-vodka:before {
+    content: "\f124";
+}
+.flaticon-gardenia-vodka-1:before {
+    content: "\f125";
+}
+.flaticon-gardenia-vodka-2:before {
+    content: "\f126";
+}
+.flaticon-gardenia-no-alcohol:before {
+    content: "\f127";
+}
+.flaticon-gardenia-coffee:before {
+    content: "\f128";
+}
+.flaticon-gardenia-coffee-cup-1:before {
+    content: "\f129";
+}
+.flaticon-gardenia-menu:before {
+    content: "\f12a";
+}
+.flaticon-gardenia-menu-1:before {
+    content: "\f12b";
+}
+.flaticon-gardenia-team:before {
+    content: "\f12c";
+}
+.flaticon-gardenia-team-1:before {
+    content: "\f12d";
+}
+.flaticon-gardenia-group:before {
+    content: "\f12e";
+}
+.flaticon-gardenia-bar-counter:before {
+    content: "\f12f";
+}
+.flaticon-gardenia-bar-counter-1:before {
+    content: "\f130";
+}
+.flaticon-gardenia-bar:before {
+    content: "\f131";
+}
+.flaticon-gardenia-beer:before {
+    content: "\f132";
+}
+.flaticon-gardenia-beer-can:before {
+    content: "\f133";
+}
+.flaticon-gardenia-menu-2:before {
+    content: "\f134";
+}
+.flaticon-gardenia-periodico-doblado:before {
+    content: "\f135";
+}
+.flaticon-gardenia-stage:before {
+    content: "\f136";
+}
+.flaticon-gardenia-reserve:before {
+    content: "\f137";
+}
+.flaticon-gardenia-reserved:before {
+    content: "\f138";
+}
+.flaticon-gardenia-reservation:before {
+    content: "\f139";
+}
+.flaticon-gardenia-reservation-1:before {
+    content: "\f13a";
+}
+.flaticon-gardenia-reserved-1:before {
+    content: "\f13b";
+}
+.flaticon-gardenia-whatsapp:before {
+    content: "\f13c";
+}
+.flaticon-gardenia-vip-card:before {
+    content: "\f13d";
+}
+.flaticon-gardenia-vip:before {
+    content: "\f13e";
+}
+.flaticon-gardenia-vip-1:before {
+    content: "\f13f";
+}
+.flaticon-gardenia-vip-2:before {
+    content: "\f140";
+}
+.flaticon-gardenia-discount:before {
+    content: "\f141";
+}
+.flaticon-gardenia-price-tag:before {
+    content: "\f142";
+}
+.flaticon-gardenia-offer:before {
+    content: "\f143";
+}
+.flaticon-gardenia-tag:before {
+    content: "\f144";
+}
+.flaticon-gardenia-ruler:before {
+    content: "\f145";
+}
+.flaticon-gardenia-length:before {
+    content: "\f146";
+}
+.flaticon-gardenia-ink:before {
+    content: "\f147";
+}
+.flaticon-gardenia-measuring-cup:before {
+    content: "\f148";
+}
+.flaticon-gardenia-money-banking:before {
+    content: "\f149";
+}
+.flaticon-gardenia-cocktail-1:before {
+    content: "\f14a";
+}
+.flaticon-gardenia-regalo:before {
+    content: "\f14b";
+}
+.flaticon-gardenia-regalo-1:before {
+    content: "\f14c";
+}
+.flaticon-gardenia-regalo-2:before {
+    content: "\f14d";
+}
+.flaticon-gardenia-etiqueta:before {
+    content: "\f14e";
+}
+.flaticon-gardenia-descuento:before {
+    content: "\f14f";
+}
+.flaticon-gardenia-signo-de-dolares:before {
+    content: "\f150";
+}
+.flaticon-gardenia-simbolo-de-dolar:before {
+    content: "\f151";
+}
+.flaticon-gardenia-tarjetas-con-signo-de-dolar:before {
+    content: "\f152";
+}
+.flaticon-gardenia-billete-de-un-dolar:before {
+    content: "\f153";
+}
+.flaticon-gardenia-category:before {
+    content: "\f154";
+}
+.flaticon-gardenia-category-1:before {
+    content: "\f155";
+}
