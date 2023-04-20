@@ -31,16 +31,6 @@
 $(function () {
     "use strict";
     var wind = $(window);
-    // ScrollIt
-    $.scrollIt({
-        upKey: 38, // key code to navigate to the next section
-        downKey: 40, // key code to navigate to the previous section
-        easing: 'swing', // the easing function for animation
-        scrollTime: 600, // how long (in ms) the animation takes
-        activeClass: 'active', // class given to the active nav element
-        onPageChange: null, // function(pageIndex) that is called when page is changed
-        topOffset: -70 // offste (in px) for fixed top navigation
-    });
     // Navbar scrolling background
     wind.on("scroll",function () {
         var bodyScroll = wind.scrollTop(),
@@ -135,7 +125,7 @@ $(function () {
         autoplayTimeout: 9000,
         dots: false,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -158,7 +148,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -181,7 +171,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -204,7 +194,7 @@ $(function () {
         dots: true,
         autoplayHoverPause: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -226,7 +216,7 @@ $(function () {
         autoplay: false,
         dots: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -270,7 +260,7 @@ $(function () {
         mouseDrag: true,
         autoplay: true,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -292,7 +282,7 @@ $(function () {
         autoplay: true,
         dots: false,
         nav: false,
-        navText: ["<span class='lnr ti-angle-left'></span>", "<span class='lnr ti-angle-right'></span>"],
+        navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
         responsiveClass: true,
         responsive: {
             0: {
@@ -423,7 +413,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplayTimeout: 5000,
         nav: false,
-        navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>'],
+        navText: ['<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>', '<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>'],
         responsiveClass: true,
         responsive: {
             0: {
@@ -447,7 +437,7 @@ $(document).ready(function () {
         autoplayTimeout: 5000,
         animateOut: 'fadeOut',
         nav: false,
-        navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>'],
+        navText: ['<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>', '<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>'],
         responsiveClass: true,
         responsive: {
             0: {
@@ -490,7 +480,7 @@ $(document).ready(function () {
         slideSpeed: 100,
         autoplayTimeout: 4000,
         nav: true,
-        navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>'],
+        navText: ['<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>', '<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>'],
         responsiveClass: true,
         responsive: {
             0: {
@@ -518,7 +508,7 @@ $(document).ready(function () {
         autoplayTimeout: 4000,
         animateOut: 'fadeOut',
         nav: false,
-        navText: ['<i class="ti-angle-left" aria-hidden="true"></i>', '<i class="ti-angle-right" aria-hidden="true"></i>'],
+        navText: ['<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>', '<i class="flaticon-gardenia-left-chevron" aria-hidden="true"></i>'],
         responsiveClass: true,
         responsive: {
             0: {

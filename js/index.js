@@ -16,6 +16,8 @@ const getProductsByCategory = ( name, id )=>{
                             price
                             content
                             measure
+                            offer
+                            discount
                         }
                     }`
             ,}),})
@@ -134,7 +136,16 @@ const getCategories = new Promise((resolve, reject) => {
 
 $(function () {
     "use strict";
-
+    // ScrollIt
+    $.scrollIt({
+        upKey: 38, // key code to navigate to the next section
+        downKey: 40, // key code to navigate to the previous section
+        easing: 'swing', // the easing function for animation
+        scrollTime: 600, // how long (in ms) the animation takes
+        activeClass: 'active', // class given to the active nav element
+        onPageChange: null, // function(pageIndex) that is called when page is changed
+        topOffset: -70 // offste (in px) for fixed top navigation
+    });
     //  MenuBook Tabs
     $('.tabs .tab-links').on('click', '.item-link', function () {
         var tab_id = $(this).attr('data-tab');
@@ -237,7 +248,8 @@ $(function () {
 
                 const categoryTopItem = $([
                     "<li class='item-link' data-tab='tab-"+ category.order +"'>",
-                        category.name,
+                    "<i class='"+category.icon+"'></i>",
+                    "<span>"+category.name+"</span>",
                     "</li>",
                 ].join("\n"))
 
@@ -275,14 +287,17 @@ $(function () {
 
                         const productsTopTab = $('#tab-'+ category.order +' .menu-list-container');
                         const productTopItem = $([
-                            "<div class='menu-list'>",
+                            "<div class='menu-list home'>",
                                 "<div class='item'>",
                                     "<div class='flex'>",
+                                        (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-descuento"></i></div>':'',
                                         "<div class='title'>"+ product.name +"</div>",
                                         "<div class='dots'></div>",
-                                        "<div class='price'>"+ formatterPeso.format(product.price) +"</div>",
+                                        (!product.offer)?"<div class='price'>"+ formatterPeso.format(product.price) +"</div>":"<div class='price'>"+ formatterPeso.format(product.price - product.discount) +"<span class='price discount'>"+ formatterPeso.format(product.price) +"</span></div>",
+                                        "<div class='price-hide'>"+ product.price +"</div>",
+                                        "<div class='measure-hide'>"+ product.content +"</div>",
                                     "</div>",
-                                    "<p><i>"+ product.description +"</i></p>",
+                                    "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
                                 "</div>",
                             "</div>",
                         ].join("\n"))

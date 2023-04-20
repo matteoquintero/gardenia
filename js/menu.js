@@ -77,27 +77,41 @@ const getProducts =  new Promise((resolve, reject) =>{
 
   $(function () {
     "use strict";
-
+    $.scrollIt({
+      upKey: 38, // key code to navigate to the next section
+      downKey: 40, // key code to navigate to the previous section
+      easing: 'swing', // the easing function for animation
+      scrollTime: 600, // how long (in ms) the animation takes
+      activeClass: 'active', // class given to the active nav element
+      onPageChange: null, // function(pageIndex) that is called when page is changed
+      topOffset: -20 // offste (in px) for fixed top navigation
+  });    
+    let activeCategory = null;
     const firstData =  new Promise((resolve, reject) =>{
       getCategories.then((res) => {
         const { categories } = res.data;
         if(!localStorage.getItem('categories')){ localStorage.setItem('categories', JSON.stringify(categories)) }
         const categoriesList = $('#gardenia-categories');
         
-        categoriesList.append(`<li class='item-link is-checked'data-filter='*'>Todo</li>`);
-
+        categoriesList.append(`<li class='item-link is-checked' data-filter='*'><i class="flaticon-gardenia-category-1"></i><span>Todo</span></li>`);
         categories.map((category) => {
             const categoryItem = $([
                 "<li class='item-link' data-filter='."+ category.id +"'>",
-                    category.name,
+                    "<i class='"+category.icon+"'></i>",
+                    "<span>"+category.name+"</span>",
                 "</li>",
             ].join("\n"))
             categoriesList.append(categoryItem);
+
+            if(category.name.replace(' ', '-').toLowerCase() === window.location.pathname.split("/")[2]){
+              activeCategory = '.'+ category.id
+              $(`#gardenia-categories li[data-filter='*']`).removeClass('is-checked');
+              $(`#gardenia-categories li[data-filter='.`+ category.id+`']`).addClass('is-checked');
+            }            
         });
         resolve(true)
-      }).catch(()=> reject(false));      
+      }).catch((e)=> reject(e));      
     });
-
 
     const secondData =  new Promise((resolve, reject) =>{
       getProducts.then((res) => {
@@ -131,7 +145,7 @@ const getProducts =  new Promise((resolve, reject) =>{
                 "<div class='menu-list "+ product.category.id +"' data-category='"+ product.category.id +"'>",
                     "<div class='item'>",
                         "<div class='flex'>",
-                            (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-offer"></i></div>':'',
+                            (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-descuento"></i></div>':'',
                             "<div class='title'>"+ product.name +"</div>",
                             "<div class='dots'></div>",
                             (!product.offer)?"<div class='price'>"+ formatterPeso.format(product.price) +"</div>":"<div class='price'>"+ formatterPeso.format(product.price - product.discount) +"<span class='price discount'>"+ formatterPeso.format(product.price) +"</span></div>",
@@ -139,7 +153,6 @@ const getProducts =  new Promise((resolve, reject) =>{
                             "<div class='measure-hide'>"+ product.content +"</div>",
                         "</div>",
                         "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
-                       
                     "</div>",
                 "</div>",
             ].join("\n"))
@@ -150,13 +163,10 @@ const getProducts =  new Promise((resolve, reject) =>{
 
       }).catch(()=> reject(false));       
     });
-    console.log({firstData})
-    console.log({secondData})
     firstData.then((res) =>{
       if(res){
         secondData.then((res) =>{
           if(res){
-            console.log(12)
             var $grid = $('.menu-list-container').isotope({
               itemSelector: '.menu-list',
               layoutMode: 'fitRows',
@@ -203,8 +213,34 @@ const getProducts =  new Promise((resolve, reject) =>{
                 $li.find('.is-checked').removeClass('is-checked');
                 $( this ).addClass('is-checked');
               });
-            });            
-            
+            });
+            if(activeCategory !== null){
+              $grid.isotope({ filter: activeCategory.replace(/^./, activeCategory[0].toUpperCase()) })
+            }
+
+            $('#gardenia-categories').owlCarousel({
+              loop: true,
+              mouseDrag: true,
+              autoplay: false,
+              dots: false,
+              nav: true,
+              navText: ["<span class='lnr flaticon-gardenia-left-chevron'></span>", "<span class='lnr flaticon-gardenia-left-chevron'></span>"],
+              responsiveClass: true,
+              responsive: {
+                  600: {
+                      items: 3,
+                  },
+                  1000: {
+                      items: 6,
+                  },
+                  1200: {
+                      items: 10,
+                  }
+              }
+          });
+
+
+
           }
         })
       }
