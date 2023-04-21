@@ -44,11 +44,11 @@ $(function () {
             logo.attr('src', 'img/logo/logo-white-alone.png');
         }
     });
-    $('.navbar .cart .icon').on('click', function () {
-        $(".navbar .cart .cart-side").fadeIn();
+    $('.cart .icon').on('click', function () {
+        $(".cart .cart-side").fadeIn();
     });
-    $('.navbar .cart .cart-side .clos').on('click', function () {
-        $(".navbar .cart .cart-side").fadeOut();
+    $('.cart .cart-side .clos').on('click', function () {
+        $(".cart .cart-side").fadeOut();
     });
     // Close navbar-collapse when a  clicked
     $(".navbar-nav .dropdown-item a").on('click', function () {
@@ -64,7 +64,6 @@ $(function () {
                 method: form.attr('method'),
                 data: form.serialize(),                 
                 success: function(result){
-                    console.log({result})
                     if (result.trim() == 'success'){
                         $('.subscribe-form').text('Gracias por unirte a nuestra comunidad!');  
                     } else {

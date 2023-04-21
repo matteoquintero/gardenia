@@ -77,63 +77,43 @@
                 <a class="logo" href="/"> <img src="img/logo/logo-white-alone.png" class="logo-img" alt=""> </a>
             </div>
             <!-- Button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="flaticon-gardenia-menu-3"></i></span> </button>
             <!-- Menu -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="/">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="menu">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order">Pedido</a></li>
+                    <li class="nav-item"><a class="nav-link" href="carta">Carta</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cuenta">Cuenta</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>
                 </ul>
-                <!-- Cart -->
-                <div class="cart">
-                    <div class="cart-icon">
-                        <span class="icon flaticon-gardenia-trolley-9 cursor-pointer"></span>
-                        <div class="mad-count">2</div>
-                    </div>
-                    <div class="cart-side">
-                        <span class="clos ti-close cursor-pointer"></span>
-                        <div class="titl">
-                            <h6>Your Cart</h6>
-                            <span>2 Items</span>
-                        </div>
-                        <div class="prods">
-                            <div class="item">
-                                <div class="img">
-                                    <img src="img/shop/1.jpg" alt="">
-                                </div>
-                                <div class="cont">
-                                    <h6>Mozzarella Dippers</h6>
-                                    <div class="price">1 x <span>$20.00</span></div>
-                                </div>
-                                <div class="del valign">
-                                    <span class="ti-close cursor-pointer"></span>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="img">
-                                    <img src="img/shop/2.jpg" alt="">
-                                </div>
-                                <div class="cont">
-                                    <h6>Southern Chicken</h6>
-                                    <div class="price">1 x <span>$30.00</span></div>
-                                </div>
-                                <div class="del valign">
-                                    <span class="ti-close cursor-pointer"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="total">
-                            <h6>Subtotal :</h6>
-                            <p>$50.00</p>
-                        </div>
-                        <a href="#0" class="button-5">Checkout</a>
-                    </div>
-                </div>
             </div>
         </div>
     </nav>
+    <!-- Cart -->
+    <div class="cart">
+        <div class="cart-icon">
+            <span class="icon flaticon-gardenia-trolley-9 cursor-pointer"></span>
+            <div id="shopping-cart-amount-icon" class="mad-count"></div>
+        </div>
+        <div class="cart-side">
+            <span class="clos flaticon-gardenia-cancel cursor-pointer"></span>
+            <div class="titl">
+                <h6>Tu Cuenta</h6>
+                <span id="shopping-cart-amount-title" class="acount"></span>
+            </div>
+            <div class="prods" id="shopping-cart">
+            </div>
+            <div class="discount">
+                <h6>Descuento:</h6>
+                <p id="shopping-cart-discount">0</p>
+            </div>
+            <div class="total">
+                <h6>Total:</h6>
+                <p id="shopping-cart-total"></p>
+            </div>                        
+            <a href="cuenta" class="button-5">Ver Cuenta</a>
+        </div>
+    </div>       
     <!-- Kenburns Slider -->
     <aside class="kenburns-section" id="kenburnsSliderContainer" data-overlay-dark="8">
         <div class="kenburns-inner h-100">
@@ -144,7 +124,7 @@
                             <h6>Est. 2023</h6>
                             <h1>Bienvenido a Gardenia<span>Bar & Café</span></h1>
                             <h4>Carrera 27a Bis # 61c - 06, Bogotá</h4> 
-                            <a href="#" class="button-1 mt-15" data-scroll-nav="4">Ver Menú<span></span></a>
+                            <a href="#" class="button-1 mt-15" data-scroll-nav="4">Ver Carta<span></span></a>
                         </div>                      
                     </div>
                 </div>
@@ -191,14 +171,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-md-3"> <img src="img/about.jpg" alt="" class="mt-90 mb-30"> </div>
-                <div class="col col-md-3"> <img src="img/about2.jpg" alt=""> </div>
+                <div class="col col-md-3"> <img src="img/inicio/7.jpg" alt="" class="mt-90 mb-30"> </div>
+                <div class="col col-md-3"> <img src="img/inicio/9.jpg" alt=""> </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials - Opening hours -->
-    <section class="background bg-img bg-fixed section-padding pb-0" data-background="img/banner5.jpg" data-overlay-dark="6" data-scroll-index="2">
+    <section class="background bg-img bg-fixed section-padding pb-0" data-background="img/inicio/4.jpg" data-overlay-dark="6" data-scroll-index="2">
         <div class="container">
                 <div class="row">
                     <!-- Testimonials -->
@@ -306,7 +286,7 @@
                 <div class="col-md-12">
                     <div class="section-head text-center">
                         <div class="section-subtitle">Destacados</div>
-                        <div class="section-title white">Menu</div>
+                        <div class="section-title white">Carta</div>
                         <div class="section-backtitle">Licores</div> <span class="icon white">
                             <i class="flaticon-gardenia-menu"></i>
                         </span>
@@ -330,14 +310,14 @@
             </div>
             <div class="row  justify-content-center">
                 <div class="col-10 text-center fade-in">
-                    <a href="menu" class="button-1 mt-15">Ver Todo el Menú<span></span></a>
+                    <a href="carta" class="button-1 mt-15">Ver Todo la Carta<span></span></a>
                 </div>
             </div>
         </div>
     </section>
    
     <!-- Gardenia Video -->
-    <section data-scroll-index="5" class="section-padding video-wrapper video bg-img bg-fixed" data-overlay-dark="4" data-background="img/banner2.jpg">
+    <section data-scroll-index="5" class="section-padding video-wrapper video bg-img bg-fixed" data-overlay-dark="4" data-background="img/inicio/5.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -351,7 +331,7 @@
                 <div class="col-md-12 text-center">
                     <a class="vid" href="https://vimeo.com/818944014">
                         <div class="vid-butn"> <span class="icon">
-                                <i class="flaticon-gardenia-next"></i>
+                                <i class="flaticon-gardenia-play"></i>
                             </span> </div>
                     </a>
                 </div>
@@ -403,7 +383,7 @@
 
     <!-- Reservation Form -->
     <section data-scroll-index="8" class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/banner12.jpg" data-overlay-dark="7">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/inicio/6.jpg" data-overlay-dark="7">
             <div class="container">
                 <div class="row">
                     <!-- Reservation -->
@@ -546,6 +526,7 @@
     <script src="js/datepicker.js"></script>
     <script src="js/smooth-scroll.min.js"></script>
     <script src="js/vegas.slider.min.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/index.js"></script>
     <script src="js/custom.js"></script>
 </body>

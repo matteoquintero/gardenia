@@ -82,9 +82,9 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="carta">Carta</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="carta">Carta</a></li>
                     <li class="nav-item"><a class="nav-link" href="cuenta">Cuenta</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="contact">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -113,130 +113,68 @@
             </div>                        
             <a href="cuenta" class="button-5">Ver Cuenta</a>
         </div>
-    </div>       
-    <!-- Header Banner / full-height -->
-    <div class="banner-header full-height valign bg-img bg-fixed" data-overlay-dark="7" data-background="img/contacto/1.jpg">
+    </div>    
+    <!-- Header Banner -->
+    <div class="banner-header valign bg-img bg-fixed" data-overlay-dark="6" data-background="img/carta/1.jpg">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center">
-                    <div class="v-middle caption">
-                        <h5>Carrera 27a Bis # 61c - 06, Bogotá</h5>
-                        <h1>Contáctenos <span>Gardenia | Café y Bar</span></h1>
-                    </div>
+                <div class="col-md-12 text-center caption mt-60">
+                    <h5>Carta</h5>
+                    <h1>Gardenia<span>Bar & Café</h1>
                 </div>
             </div>
         </div>
         <!-- arrow down -->
         <div class="arrow bounce text-center">
             <a href="#" data-scroll-nav="1" class=""> <i class="flaticon-gardenia-left-chevron"></i> </a>
-        </div>
+        </div>        
     </div>
-    <!-- Contact -->
-    <section class="info-box section-padding pb-0" data-scroll-index="1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="item">
-                            <span class="icon flaticon-gardenia-maps-1"></span>
-                            <div class="cont">
-                                <h5>Dirección</h5>
-                                <p>Carrera 27a Bis # 61c - 06, Bogotá</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="item">
-                            <span class="icon flaticon-gardenia-smartphone"></span>
-                            <div class="cont">
-                                <h5>Teléfono</h5>
-                                <h6><a href="tel:+573204144820">+57 320 4144820</a></h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="item">
-                            <span class="icon flaticon-gardenia-email"></span>
-                            <div class="cont">
-                                <h5>Correo Electrónico</h5>
-                                <p>contacto@gardenia-bar-cafe.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    <section class="section-padding pb-0">
+    <!-- Menu Book -->
+    <section class="menu-book tabs section-padding position-re bg-blck">
         <div class="container">
-            <div class="row">
-                <div class="col-md-5">
-                    <div class="section-head mb-50">
-                        <div class="section-subtitle">Gardenia | Café y Bar | Frente al Movistar Arena</div>
-                        <div class="section-title mb-20">Póngase en contacto</div>
-                        <p>
-                            ¿Tienes algún consejo o sugerencia que te gustaría compartir con nosotros en relación a nuestro bar café? Si es así, no dudes en ponerte en contacto con nosotros. ¡Estamos abiertos a escuchar tus ideas y opiniones para seguir mejorando nuestro servicio y ofrecer una experiencia excepcional a nuestros clientes!
-                        </p>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="tab-links mb-60">
+                        <ul class="text-center filters-product owl-carousel " id="gardenia-categories"  data-scroll-index="1">
+                        </ul>
+                        <ul class="text-center filters-product" id="gardenia-filters">
+                            <small>Ordenar por:</small>
+                            <li class="category filters" data-type='sort' data-sort-by="measure">
+                                <div class="filters-icon">
+                                    <i class="flaticon-gardenia-length"></i>
+                                </div>
+                            </li>                               
+                            <li class="category filters" data-type='sort' data-sort-by="category">
+                                <div class="filters-icon">
+                                    <i class="flaticon-gardenia-category-1"></i>
+                                </div>
+                                 <p class="filters-text">Categorías</p>
+                            </li>
+                            <li class="price filters" data-type='sort' data-sort-by="price">
+                                <div class="filters-icon">
+                                    <i class="flaticon-gardenia-billete-de-un-dolar"></i>
+                                </div>
+                            </li>
+                            <li class="offer filters" data-type='sort' data-sort-by="offer">
+                                <div class="filters-icon">
+                                    <i class="flaticon-gardenia-descuento"></i>
+                                </div>
+                            </li>
+                        </ul>                        
                     </div>
                 </div>
-                <div class="col-md-6 offset-md-1">
-                    <div class="contact-form">
-                    <div class="booking-inner clearfix">
-                                <form  class="form1 clearfix" autocomplete="off" id="contact-form" method="post" action="contact.php">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input1_wrapper">
-                                                <label>Nombre</label>
-                                                <div class="input2_inner">
-                                                    <input type="text" class="form-control input" name="name" placeholder='Nombre' required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input1_wrapper">
-                                                <label>Teléfono</label>
-                                                <div class="input2_inner">
-                                                    <input type="text" class="form-control input" name="phone" placeholder='Teléfono' required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input1_wrapper">
-                                                <label>Correo Electrónico</label>
-                                                <div class="input2_inner">
-                                                    <input type="email" class="form-control input" name="email" placeholder='Correo Electrónico' required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input1_wrapper">
-                                                <label>Asunto</label>
-                                                <div class="input2_inner">
-                                                    <input type="text" class="form-control input" name="subject" placeholder='Asunto' required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 form-group">
-                                            <textarea name="message" id="message" cols="30" rows="4" placeholder='Mensaje' name="message" required></textarea>
-                                        </div>
-                                        <div class="col-md-12 mb-30">
-                                            <button type="submit" class="btn-form1-submit">Enviar Mensaje</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+            </div>            
+            <div class="row">
+                <div class="col-12">
+                    <div class="position-re" id="gardenia-products">
                     </div>
                 </div>
             </div>
-    </div>
-    <!-- Maps -->
-    <div class="full-width" >
-        <div class="no-spacing map">
-            <iframe  frameborder="0" class="google-maps" allowfullscreen="" aria-hidden="false" tabindex="0" style="border:0" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?q=Carrera%2027a%20Bis%20%23%2061c%20-%2006%2C%20Bogot%C3%A1&key=AIzaSyB9EasPofX3Q68cgUNy5lqEASGuLWjp-Zc"></iframe> 
         </div>
-    </div>
     </section>
     <!-- Reservation Form -->
     <section data-scroll-index="8" class="testimonials">
-        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/contacto/2.jpg" data-overlay-dark="7">
+        <div class="background bg-img bg-fixed section-padding pb-0" data-background="img/carta/2.jpg" data-overlay-dark="7">
             <div class="container">
                 <div class="row">
                     <!-- Reservation -->
@@ -325,7 +263,7 @@
                                 <a target="_blank" href="https://instagram.com/gardenia_bar_cafe"><i class="flaticon-gardenia-logotipo-de-instagram"></i></a>
                                 <a target="_blank" href="https://www.facebook.com/gardeniacafebar"><i class="flaticon-gardenia-facebook"></i></a>
                                 <a target="_blank" class='whatsapp' href="https://wa.me/+573204144820?text=Hola%2C%20quer%C3%ADa%20saber%20si%20esta%20abierto%20Gardenia%20y%20como%20puedo%20llegar"><i class="flaticon-gardenia-whatsapp-1"></i></a>
-                            </div>                          
+                            </div>                           
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -378,38 +316,8 @@
     <script src="js/datepicker.js"></script>
     <script src="js/smooth-scroll.min.js"></script>
     <script src="js/cart.js"></script>
+    <script src="js/carta.js"></script>
     <script src="js/custom.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            if(localStorage.getItem('cart')){ updateCart(JSON.parse(localStorage.getItem('cart'))) }
-            // ScrollIt
-            $.scrollIt({
-                upKey: 38, // key code to navigate to the next section
-                downKey: 40, // key code to navigate to the previous section
-                easing: 'swing', // the easing function for animation
-                scrollTime: 600, // how long (in ms) the animation takes
-                activeClass: 'active', // class given to the active nav element
-                onPageChange: null, // function(pageIndex) that is called when page is changed
-                topOffset: -70 // offste (in px) for fixed top navigation
-            });
-            $('#contact-form').on('submit',function(e){
-                e.preventDefault();
-                $('.subscribe button').text('Enviando...'); 
-                var form = $(this);
-                $.ajax({
-                    url: form.attr('action'),
-                    method: form.attr('method'),
-                    data: form.serialize(),                 
-                    success: function(result){
-                        if (result.trim() == 'success'){
-                            $('.form1').text('Gracias por unirte a nuestra comunidad!');  
-                        } else {
-                            $('.form1').text('No se pudo enviar el mensaje!');
-                        }
-                    }
-                });
-            });
-        });     
-    </script>    
 </body>
+
 </html>

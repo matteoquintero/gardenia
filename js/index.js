@@ -11,6 +11,7 @@ const getProductsByCategory = ( name, id )=>{
                     query: `
                     query {
                         products(first: 6, orderBy: order_ASC, where: {category: {id: "`+ id +`"}}) {
+                            id
                             name
                             description
                             price
@@ -18,6 +19,9 @@ const getProductsByCategory = ( name, id )=>{
                             measure
                             offer
                             discount
+                            category{
+                                id
+                            }
                         }
                     }`
             ,}),})
@@ -52,7 +56,6 @@ const createClient = ( name, phone )=>{
                 }`
         ,}),})
         .then((res) => {
-            console.log({res})
             if (!res.ok) return reject(res);
             return resolve(res.json());
         })                
@@ -136,6 +139,8 @@ const getCategories = new Promise((resolve, reject) => {
 
 $(function () {
     "use strict";
+    if(localStorage.getItem('cart')){ updateCart(JSON.parse(localStorage.getItem('cart'))) }
+
     // ScrollIt
     $.scrollIt({
         upKey: 38, // key code to navigate to the next section
@@ -189,7 +194,6 @@ $(function () {
         const eventsList = $('#gardenia-events');
 
         events.map((event)=>{
-            console.log({event})
 
             const eventDate = new Date(event.date);
             const eventDayOptions = {
@@ -223,90 +227,101 @@ $(function () {
 
     })
 
-    getCategories.then((res) => {
-        const { categories } = res.data;
-        if(!localStorage.getItem('categories')){ localStorage.setItem('categories', JSON.stringify(categories)) }
 
-        const categoriesList = $('#gardenia-categories');
-        const categoriesTopList = $('#gardenia-top-categories');
-        const productsTopList = $('#gardenia-top-products');
+    const secondData =  new Promise((resolve, reject) =>{
 
-        categories.map((category) => {
-            
-            const categoryItem = $([
-                "<div class='col-md-4'>",
-                    "<a class='item' href='"+ category.name.replace(' ', '-').toLowerCase() +"'>",
-                        "<span class='"+ category.icon +"'></span>",
-                        "<h5>"+ category.name +"</h5>",
-                        "<p>"+ category.description +"</p>",
-                        "<div class='shape'> <span class='"+ category.icon +"'></span> </div>",
-                    "</a>",
-                "</div>",
-            ].join("\n"));
-
-            if(category.order <= 3){
-
-                const categoryTopItem = $([
-                    "<li class='item-link' data-tab='tab-"+ category.order +"'>",
-                    "<i class='"+category.icon+"'></i>",
-                    "<span>"+category.name+"</span>",
-                    "</li>",
-                ].join("\n"))
-
-                categoriesTopList.append(categoryTopItem);
-
-                const productTopContainerTab = $([
-                    "<div class='tab-content' id='tab-"+ category.order +"'>",
-                        "<div class='row'>",
-                            "<div class='col-md-12'>",
-                                "<div class='menu-list-container'>",
+        getCategories.then((res) => {
+            const { categories } = res.data;
+            if(!localStorage.getItem('categories')){ localStorage.setItem('categories', JSON.stringify(categories)) }
+    
+            const categoriesList = $('#gardenia-categories');
+            const categoriesTopList = $('#gardenia-top-categories');
+            const productsTopList = $('#gardenia-top-products');
+    
+            categories.map((category) => {
+                
+                const categoryItem = $([
+                    "<div class='col-md-4'>",
+                        "<a class='item' href='"+ category.name.replace(' ', '-').toLowerCase() +"'>",
+                            "<span class='"+ category.icon +"'></span>",
+                            "<h5>"+ category.name +"</h5>",
+                            "<p>"+ category.description +"</p>",
+                            "<div class='shape'> <span class='"+ category.icon +"'></span> </div>",
+                        "</a>",
+                    "</div>",
+                ].join("\n"));
+    
+                if(category.order <= 3){
+    
+                    const categoryTopItem = $([
+                        "<li class='item-link' data-tab='tab-"+ category.order +"'>",
+                        "<i class='"+category.icon+"'></i>",
+                        "<span>"+category.name+"</span>",
+                        "</li>",
+                    ].join("\n"))
+    
+                    categoriesTopList.append(categoryTopItem);
+    
+                    const productTopContainerTab = $([
+                        "<div class='tab-content' id='tab-"+ category.order +"'>",
+                            "<div class='row'>",
+                                "<div class='col-md-12'>",
+                                    "<div class='menu-list-container'>",
+                                    "</div>",
                                 "</div>",
                             "</div>",
                         "</div>",
-                    "</div>",
-                ].join("\n"))
-
-                productsTopList.append(productTopContainerTab)
-
-                if(category.order === 1){ 
-                    productTopContainerTab.addClass('current')
-                    categoryTopItem.addClass('current')
-                }
-
-                getProductsByCategory(category.name, category.id).then((res) => {
-                    const { products } = res.data;
-                    if(!localStorage.getItem(category.name)){ localStorage.setItem(category.name, JSON.stringify(products)) }
-
-                    products.map((product) => {
-                        
-                        const formatterPeso = new Intl.NumberFormat('es-CO', {
-                            style: 'currency',
-                            currency: 'COP',
-                            minimumFractionDigits: 0
-                        })
-
-                        const productsTopTab = $('#tab-'+ category.order +' .menu-list-container');
-                        const productTopItem = $([
-                            "<div class='menu-list home'>",
-                                "<div class='item'>",
-                                    "<div class='flex'>",
-                                        (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-descuento"></i></div>':'',
-                                        "<div class='title'>"+ product.name +"</div>",
-                                        "<div class='dots'></div>",
-                                        (!product.offer)?"<div class='price'>"+ formatterPeso.format(product.price) +"</div>":"<div class='price'>"+ formatterPeso.format(product.price - product.discount) +"<span class='price discount'>"+ formatterPeso.format(product.price) +"</span></div>",
-                                        "<div class='price-hide'>"+ product.price +"</div>",
-                                        "<div class='measure-hide'>"+ product.content +"</div>",
+                    ].join("\n"))
+    
+                    productsTopList.append(productTopContainerTab)
+    
+                    if(category.order === 1){ 
+                        productTopContainerTab.addClass('current')
+                        categoryTopItem.addClass('current')
+                    }
+    
+                    getProductsByCategory(category.name, category.id).then((res) => {
+                        const { products } = res.data;
+                        if(!localStorage.getItem(category.name)){ localStorage.setItem(category.name, JSON.stringify(products)) }
+    
+                        products.map((product) => {
+                            
+                            const productsTopTab = $('#tab-'+ category.order +' .menu-list-container');
+                            const productTopItem = $([
+                                "<div data-product='"+ product.id +"' class='menu-list home'>",
+                                    "<div class='item'>",
+                                        "<div class='flex'>",
+                                            (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-descuento"></i></div>':'',
+                                            "<div class='title'>"+ product.name +"</div>",
+                                            "<div class='dots'></div>",
+                                            (!product.offer)?"<div class='price'>"+ formatterPeso.format(product.price) +"</div>":"<div class='price'>"+ formatterPeso.format(product.price - product.discount) +"<span class='price discount'>"+ formatterPeso.format(product.price) +"</span></div>",
+                                            "<div class='price-hide'>"+ product.price +"</div>",
+                                            "<div class='measure-hide'>"+ product.content +"</div>",
+                                        "</div>",
+                                        "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
                                     "</div>",
-                                    "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
                                 "</div>",
-                            "</div>",
-                        ].join("\n"))
-                        productsTopTab.append(productTopItem)
-
+                            ].join("\n"))
+                            productsTopTab.append(productTopItem)
+    
+                        });
                     });
-                });
-            }
-            categoriesList.append(categoryItem);
-        });
-    });
+                
+                }
+                categoriesList.append(categoryItem);
+            });
+              
+        });        
+        resolve(true)
+
+    }).catch(()=> reject(false));
+
+
+    secondData.then(()=>{
+        $('.menu-list.home').click(function() {
+            const product = jQuery(this).data('product')
+            addCart(product)
+        });  
+    })
+
 });

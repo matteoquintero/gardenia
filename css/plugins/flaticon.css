@@ -20,6 +20,7 @@ url("./../../fonts/flaticon_gardenia.svg?b5541a4e361f344a08c7a82b02ff03be#flatic
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .flaticon-gardenia-wine-glass:before {
     content: "\f101";
 }
@@ -407,7 +408,7 @@ url("./../../fonts/flaticon_gardenia.svg?b5541a4e361f344a08c7a82b02ff03be#flatic
 .flaticon-gardenia-arrow-right:before {
     content: "\f181";
 }
-.flaticon-gardenia-left-chevron:before {
+.flaticon-gardenia-right-arrow-1:before {
     content: "\f182";
 }
 .flaticon-gardenia-left-chevron:before {
@@ -427,4 +428,25 @@ url("./../../fonts/flaticon_gardenia.svg?b5541a4e361f344a08c7a82b02ff03be#flatic
 }
 .flaticon-gardenia-menu-5:before {
     content: "\f188";
+}
+.flaticon-gardenia-play:before {
+    content: "\f189";
+}
+.flaticon-gardenia-play-button:before {
+    content: "\f18a";
+}
+.flaticon-gardenia-plus-1:before {
+    content: "\f18b";
+}
+.flaticon-gardenia-minus-1:before {
+    content: "\f18c";
+}
+.flaticon-gardenia-minus-2:before {
+    content: "\f18d";
+}
+.flaticon-gardenia-plus-2:before {
+    content: "\f18e";
+}
+.flaticon-gardenia-add-1:before {
+    content: "\f18f";
 }
