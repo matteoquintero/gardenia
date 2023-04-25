@@ -32,7 +32,7 @@ const addCart = (product, account=false) => {
     }else{
       updateCart(cart)
     }    
-  }
+}
 
 const removeCart = (product, account=false) => {
     cart = JSON.parse(localStorage.getItem('cart'));
@@ -57,72 +57,71 @@ const removeCart = (product, account=false) => {
     }else{
       updateCart(cart)
     }
-  }
+}
   
-  const updateCart = (cart) => {
-    const shoppingCart = $('#shopping-cart');
-    
-    const cartTotal = $('#shopping-cart-total');
-    const cartDiscount = $('#shopping-cart-discount');
-    const amountIcon =  $('#shopping-cart-amount-icon');
-    const amountTitle =  $('#shopping-cart-amount-title');
+const updateCart = (cart) => {
+  const shoppingCart = $('#shopping-cart');
   
-    shoppingCart.html('')
-    const products = JSON.parse(localStorage.getItem('products'));
-    const categories = JSON.parse(localStorage.getItem('categories'));
-    let total = 0
-    let totalDiscount = 0
-    let totalAmount = 0
-  
-    cart.forEach((item)=>{
-  
-      const product = products.find(x => x.id === item.product)
-      const category = categories.find(x => x.id === product.category.id)
-      const itemPrice = product.price * item.amount;
-      const itemPriceWhitDiscount = (product.offer) ? (product.price - product.discount) * item.amount : product.price * item.amount;
-      const itemDiscount = (product.offer) ? product.discount * item.amount : 0;
-      totalAmount = totalAmount + item.amount
-      total = total + itemPrice
-      totalDiscount = totalDiscount + itemDiscount
-      const cartItem = $([
-        "<div class='item'>",
-          "<div class='img'>",
-            "<i class='"+category.icon+"'></i>",
-          "</div>",
-          "<div class='cont'>",
-              "<h6>"+ product.name +"</h6>",
-              "<div class='price'>"+ item.amount +" x <span>"+ formatterPeso.format(itemPrice) +"</span></div>",
-          "</div>",
-          "<div class='del valign'>",
-              "<span data-product='"+ product.id +"' class='flaticon-gardenia-plus-2 cursor-pointer item-add'></span>",
-              "<span data-product='"+ product.id +"' class='flaticon-gardenia-minus-1 cursor-pointer item-remove'></span>",
-          "</div>",
+  const cartTotal = $('#shopping-cart-total');
+  const cartDiscount = $('#shopping-cart-discount');
+  const amountIcon =  $('#shopping-cart-amount-icon');
+  const amountTitle =  $('#shopping-cart-amount-title');
+
+  shoppingCart.html('')
+  const products = JSON.parse(localStorage.getItem('products'));
+  const categories = JSON.parse(localStorage.getItem('categories'));
+  let total = 0
+  let totalDiscount = 0
+  let totalAmount = 0
+
+  cart.forEach((item)=>{
+
+    const product = products.find(x => x.id === item.product)
+    const category = categories.find(x => x.id === product.category.id)
+    const itemPrice = product.price * item.amount;
+    const itemPriceWhitDiscount = (product.offer) ? (product.price - product.discount) * item.amount : product.price * item.amount;
+    const itemDiscount = (product.offer) ? product.discount * item.amount : 0;
+    totalAmount = totalAmount + item.amount
+    total = total + itemPrice
+    totalDiscount = totalDiscount + itemDiscount
+    const cartItem = $([
+      "<div class='item'>",
+        "<div class='img'>",
+          "<i class='"+category.icon+"'></i>",
         "</div>",
-      ].join("\n"))
-    
-      shoppingCart.append(cartItem)
+        "<div class='cont'>",
+            "<h6>"+ product.name +"</h6>",
+            "<div class='price'>"+ item.amount +" x <span>"+ formatterPeso.format(itemPrice) +"</span></div>",
+        "</div>",
+        "<div class='del valign'>",
+            "<span data-product='"+ product.id +"' class='flaticon-gardenia-plus-2 cursor-pointer item-add'></span>",
+            "<span data-product='"+ product.id +"' class='flaticon-gardenia-minus-1 cursor-pointer item-remove'></span>",
+        "</div>",
+      "</div>",
+    ].join("\n"))
   
-    })
-  
-    amountIcon.html(totalAmount)
-    cartTotal.html(formatterPeso.format(total - totalDiscount))
-    cartDiscount.html(formatterPeso.format(totalDiscount))
-    amountTitle.html(totalAmount + ' productos')
-  
-    $('.item-add').click(function() {
-      const product = jQuery(this).data('product')
-      addCart(product)
-    });
-  
-    $('.item-remove').click(function() {
-      const product = jQuery(this).data('product')
-      removeCart(product)
-    });    
-  
-  }
+    shoppingCart.append(cartItem)
 
+  })
 
-  const updateAccount = (cart) => {
+  amountIcon.html(totalAmount)
+  cartTotal.html(formatterPeso.format(total - totalDiscount))
+  cartDiscount.html(formatterPeso.format(totalDiscount))
+  amountTitle.html(totalAmount + ' productos')
+
+  $('.item-add').click(function() {
+    const product = jQuery(this).data('product')
+    addCart(product)
+  });
+
+  $('.item-remove').click(function() {
+    const product = jQuery(this).data('product')
+    removeCart(product)
+  });    
+
+}
+
+const updateAccount = (cart) => {
     const accountCart = $('#account-cart');
     const cartTotal = $('#account-cart-total');
     const cartDiscount = $('#account-cart-discount');
