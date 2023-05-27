@@ -94,7 +94,6 @@ const addCartRio = (product) => {
       }
       cart.find(x => x.active === true).products.push(item)
     }
-    console.log({cart})
     localStorage.setItem('cartRio', JSON.stringify(cart))
     updateAccountRio(cart)
 }
@@ -272,10 +271,7 @@ const getCategories = new Promise((resolve, reject) => {
         onPageChange: null, // function(pageIndex) that is called when page is changed
         topOffset: -20 // offste (in px) for fixed top navigation
       });
-      if(localStorage.getItem('cartRio')){ 
-        makeListAccounts(JSON.parse(localStorage.getItem('cartRio')))
-        updateAccountRio(JSON.parse(localStorage.getItem('cartRio'))) 
-    }
+
   
       const firstData =  new Promise((resolve, reject) =>{
         getCategories.then((res) => {
@@ -347,6 +343,12 @@ const getCategories = new Promise((resolve, reject) => {
         if(res){
           secondData.then((res) =>{
             if(res){
+
+              if(localStorage.getItem('cartRio')){ 
+                makeListAccounts(JSON.parse(localStorage.getItem('cartRio')))
+                updateAccountRio(JSON.parse(localStorage.getItem('cartRio'))) 
+              }
+
               var $grid = $('.menu-book .menu-list-container').isotope({
                 itemSelector: '.menu-list',
                 layoutMode: 'fitRows',

@@ -4097,34 +4097,6 @@ button.mfp-arrow {
     justify-content: center;
 }
 
-.main-cart .menu-list::after{
- display:none
-}
- .menu-list::after{
-   -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-    opacity:0;
-  background: #acde09;
-  border-radius: 100%;
-  content:"\f16b";
-  position: absolute;
-  font-family: 'flaticon_gardenia';
-  font-size: 30px;
-  color: #132d02;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px; 
-}
-
- .menu-list:hover::after{
- opacity:1
-
-}
 
 
 
@@ -4219,6 +4191,28 @@ button.mfp-arrow {
  justify-content: space-between;
  margin: 0;
 }
+.menu-list .item-icon{
+    height: 100%;
+    margin-left: 20px;
+    /* display: none; */
+}
+.menu-list .item-icon p{
+ height: 100%;
+ justify-content: center;
+ display: flex;
+ flex-direction: column;
+}
+.menu-list .item-icon p i.flaticon-gardenia-trolley-8{
+    font-size: 25px;
+    color: #D4A408;
+    font-style: normal;
+}
+.menu-list .item-icon p i:nth-child(2){
+ font-size: 9px;
+ position: absolute;
+ top: 9px;
+ opacity: 0;
+}
 .menu-list.home p{
  color: #f8f8f8;
  opacity: 0.4;
@@ -4233,7 +4227,7 @@ button.mfp-arrow {
 }
     #gardenia-products .menu-list {
         width: 100%;
-        height: 80px;
+        height: 90px;
     }
     .gutter-products{
         width: 0%;
@@ -5429,7 +5423,7 @@ padding: 10px 0 10px 20px;
 /* cart box */
 .cart-totals {
 	padding: 30px;
-	background: #d6cc80;
+	background: #d6cc80!important;
 }
 .cart-totals button{
     background: #132d02;
@@ -11074,6 +11068,7 @@ button.mfp-arrow {
     height: 70px;
     justify-content: space-between;
 }
+.main-cart .menu-list:hover {]
  .menu-list {
     width: 48%;
     height: 80px;
@@ -11081,6 +11076,32 @@ button.mfp-arrow {
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease; 
+}
+.menu-list.active{
+  animation: gelatine 0.5s 3;
+}
+ .menu-list:hover::before {
+  opacity: 0.15;
+  filter: blur(40px);
+}
+ .menu-list::before{
+  content:"";
+  width: 100%;
+  position: absolute;
+  height: 90px;
+  background: #fff;
+  opacity: 0;
+ }
+@keyframes gelatine {
+  from, to { transform: scale(1, 1); }
+  25% { transform: scale(0.9, 1.1); }
+  50% { transform: scale(1.1, 0.9); }
+  75% { transform: scale(0.95, 1.05); }
 }
 
 .main-cart .menu-list p{
@@ -11119,38 +11140,6 @@ button.mfp-arrow {
     justify-content: center;
 }
 
-.main-cart .menu-list::after{
- display:none
-}
- .menu-list::after{
-   -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
-    opacity:0;
-  background: #acde09;
-  border-radius: 100%;
-  content:"\f16b";
-  position: absolute;
-  font-family: 'flaticon_gardenia';
-  font-size: 30px;
-  color: #132d02;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px; 
-}
-
- .menu-list:hover::after{
- opacity:1
-
-}
-
-
-
-
 .gutter-products{
     width: 8.3%;
 }
@@ -11167,7 +11156,6 @@ button.mfp-arrow {
     font-size: 18px;
     font-weight: 500;
 }
-
 
 .menu-list .flex .offer-icon{
  color: #ACDE09;
@@ -11204,6 +11192,7 @@ button.mfp-arrow {
     align-items: center;
     background: transparent;
     justify-content: center;
+    font-weight: 600;
 }.menu-list .flex .price .discount{
  text-decoration: line-through;
  color: #6c757d;
@@ -11245,7 +11234,10 @@ button.mfp-arrow {
  color: #f8f8f8;
  opacity: 0.4;
 }
-.menu-list p span{}
+.menu-list p span{
+    color: #D6CC80;
+    margin-left: 5px;
+}
 @media screen and (max-width: 991px) {
  .main-cart .menu-list .item{
     width: 75%;
@@ -11255,7 +11247,7 @@ button.mfp-arrow {
 }
     #gardenia-products .menu-list {
         width: 100%;
-        height: 80px;
+        height: 90px;
     }
     .gutter-products{
         width: 0%;

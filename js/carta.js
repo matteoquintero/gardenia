@@ -44,7 +44,7 @@ const getProducts =  new Promise((resolve, reject) =>{
         body: JSON.stringify({
             query: `
             query {
-                products(orderBy: order_ASC) {
+                products(where: {quantity_gt: 0}, first: 100, orderBy: order_ASC) {
                     id
                     name
                     description
@@ -53,6 +53,7 @@ const getProducts =  new Promise((resolve, reject) =>{
                     measure
                     offer
                     discount
+                    quantity
                     category {
                       id
                     }                    
@@ -152,6 +153,12 @@ const getProducts =  new Promise((resolve, reject) =>{
                         "</div>",
                         "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
                     "</div>",
+                    "<div class='item-icon'>",
+                    "<p>",
+                      "<i class='flaticon-gardenia-trolley-8'></i>",
+                      "<i>"+ product.quantity +"</i>",
+                    "</p>",
+                "</div>",  
                 "</div>",
             ].join("\n"))
             productsTab.append(productItem)
@@ -186,11 +193,18 @@ const getProducts =  new Promise((resolve, reject) =>{
                 return parseInt( number, 10 ) > 50;
               },
             };
+
+            var clearMenuList = (()=>{
+              $('.menu-list').each( function( i, div ) {
+                $( this ).removeClass('active');
+              });
+            })
             
             $('#gardenia-categories').on( 'click', 'li', function() {
               var filterValue = $( this ).attr('data-filter');
               filterValue = filterFns[ filterValue ] || filterValue;
               $grid.isotope({ filter: filterValue });
+              clearMenuList()
             });
             
             $('#gardenia-filters').on( 'click', 'li', function() {
@@ -203,6 +217,7 @@ const getProducts =  new Promise((resolve, reject) =>{
                 filterValue = filterFns[ filterValue ] || filterValue;
                 $grid.isotope({ filter: filterValue });                
               }
+              clearMenuList()
             });
 
             $('.filters-product').each( function( i, li ) {
@@ -210,6 +225,7 @@ const getProducts =  new Promise((resolve, reject) =>{
               $li.on( 'click', 'li', function() {
                 $li.find('.is-checked').removeClass('is-checked');
                 $( this ).addClass('is-checked');
+                clearMenuList()
               });
             });
             if(activeCategory !== null){
@@ -239,6 +255,7 @@ const getProducts =  new Promise((resolve, reject) =>{
 
           $('.menu-list').click(function() {
             const product = jQuery(this).data('product')
+            jQuery(this).addClass("active")
             addCart(product)
           });
 

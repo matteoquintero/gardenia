@@ -1,11 +1,11 @@
 <?php
     ini_set( 'display_errors', 1 );
     error_reporting( E_ALL );
-    if($_POST['email']){
-        $from = $_POST['email'];
+    if($_POST['phone']){
+        $from = "pagina@gardenia-bar-cafe.com";
         $to = "contacto@gardenia-bar-cafe.com";
-        $subject = "Nuevo Vip";
-        $message = "Nuevo correo: ".$_POST['email'];
+        $subject = "Necesito que me llamen";
+        $message = "Llama a ".$_POST['name']." al ".$_POST['phone'];
         $headers = "From:" . $from;
         $send_mail = mail($to,$subject,$message, $headers);
         if($send_mail){

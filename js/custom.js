@@ -72,6 +72,24 @@ $(function () {
                 }
             });
         });
+
+        $('.gardenia-vip-form').on('submit',function(e){
+            e.preventDefault();
+            $('.gardenia-vip-form button').text('Enviando...'); 
+            var form = $(this);
+            $.ajax({
+                url: form.attr('action'),
+                method: form.attr('method'),
+                data: form.serialize(),                 
+                success: function(result){
+                    if (result.trim() == 'success'){
+                        $('.gardenia-vip-form').text('Pronto te llamaremos!');  
+                    } else {
+                        $('.gardenia-vip-form').text('No se pudo enviar el mensaje!');
+                    }
+                }
+            });
+        });        
     });      
     // Sections background image from data background
     var pageSection = $(".bg-img, section");

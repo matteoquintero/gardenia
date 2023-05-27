@@ -84,7 +84,8 @@
                     <li class="nav-item"><a class="nav-link active" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="carta">Carta</a></li>
                     <li class="nav-item"><a class="nav-link" href="cuenta">Cuenta</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="musica">Música</a></li>
                 </ul>
             </div>
         </div>
@@ -403,7 +404,7 @@
                                 <h4>Te Llamamos</h4>
                             </div>
                             <div class="booking-inner clearfix">
-                                <form class="form1 clearfix" id="gardenia-vip-form" autocomplete="off">
+                                <form class="form1 clearfix gardenia-vip-form" autocomplete="off" action="call-me.php" method="post" >
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="input1_wrapper">
@@ -417,7 +418,7 @@
                                             <div class="input1_wrapper">
                                                 <label>Teléfono</label>
                                                 <div class="input2_inner">
-                                                    <input name="phone" type="text" class="form-control input" placeholder="Teléfono" required>
+                                                    <input name="phone" type="text" class="form-control input" placeholder="Teléfono" required min="8">
                                                 </div>
                                             </div>
                                         </div>
@@ -483,8 +484,8 @@
                                     <p>
                                         Recibe información exclusiva de eventos, presentaciones de bandas y artistas locales, fiestas temáticas, y mucho más. O si quieres celebrar un día especial, podrás hacer tu reserva y disfrutar del horario extendido solo para tu grupo.
                                     </p>
-                                    <form class="subscribe-form" action="mail.php" method="post" autocomplete="off">
-                                        <input type="text" name="email" placeholder="Tu correo" required>
+                                    <form class="subscribe-form" action="vip.php" method="post" autocomplete="off">
+                                        <input type="email" name="email" placeholder="Tu correo" required>
                                         <button>Gardenia Vip</button>
                                     </form>
                                 </div>

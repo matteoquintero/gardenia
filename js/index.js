@@ -19,6 +19,7 @@ const getProductsByCategory = ( name, id )=>{
                             measure
                             offer
                             discount
+                            quantity
                             category{
                                 id
                             }
@@ -166,11 +167,6 @@ $(function () {
         $('.tab-content').fadeOut();
         $("#" + tab2_id).fadeIn();
     });    
-
-    $("#gardenia-vip-form").submit(function(e) {
-        e.preventDefault();
-        const responseCreate = createClient(e.target.name.value, e.target.phone.value)
-    });
 
     $('#kenburnsSliderContainer').vegas({
         slides: [{
