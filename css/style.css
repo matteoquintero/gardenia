@@ -11068,7 +11068,7 @@ button.mfp-arrow {
     height: 70px;
     justify-content: space-between;
 }
-.main-cart .menu-list:hover {]
+.main-cart .menu-list:hover {}
  .menu-list {
     width: 48%;
     height: 80px;
@@ -11085,11 +11085,11 @@ button.mfp-arrow {
 .menu-list.active{
   animation: gelatine 0.5s 3;
 }
- .menu-list:hover::before {
+.menu-book.carta .menu-list:hover::before {
   opacity: 0.15;
   filter: blur(40px);
 }
- .menu-list::before{
+.menu-book.carta .menu-list::before{
   content:"";
   width: 100%;
   position: absolute;

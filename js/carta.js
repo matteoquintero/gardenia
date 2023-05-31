@@ -35,7 +35,7 @@ const getCategories = new Promise((resolve, reject) => {
 
 const getProducts =  new Promise((resolve, reject) =>{
   if(!localStorage.getItem('products')){
-      fetch( 'https://api-sa-east-1.hygraph.com/v2/clf6bmruf5nal01t5ahxwbqru/master',{
+    const firstProducts = fetch( 'https://api-sa-east-1.hygraph.com/v2/clf6bmruf5nal01t5ahxwbqru/master',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -61,9 +61,51 @@ const getProducts =  new Promise((resolve, reject) =>{
             }`
     ,}),})
     .then((res) => {
-        if (!res.ok) return reject(res);
-        return resolve(res.json());
-    })                
+      if (!res.ok) return reject(res);
+      return res.json();
+    })
+    firstProducts
+      .then((firstProducts) => {
+        const after = firstProducts.data.products.at(-1).id;
+        const secondProducts = fetch( 'https://api-sa-east-1.hygraph.com/v2/clf6bmruf5nal01t5ahxwbqru/master',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+            },
+            body: JSON.stringify({
+                query: `
+                query {
+                    products(where: {quantity_gt: 0}, first: 100, orderBy: order_ASC, after: "${after}") {
+                        id
+                        name
+                        description
+                        price
+                        content
+                        measure
+                        offer
+                        discount
+                        quantity
+                        category {
+                          id
+                        }                    
+                    }
+                }`
+        ,}),})
+        .then((res) => {
+            if (!res.ok) return reject(res);
+            return res.json();
+        })
+        return Promise.all([firstProducts, secondProducts]);
+      })
+      .then(([firstProducts, secondProducts]) => {
+        const products = {data:{products:[...firstProducts.data.products, ...secondProducts.data.products]}}
+        resolve(products);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+ 
   }
 
   if(localStorage.getItem('products')){
@@ -73,10 +115,8 @@ const getProducts =  new Promise((resolve, reject) =>{
       }
       return reject (404)
   }
-  
 
 });
-
 
   $(function () {
     "use strict";
@@ -120,7 +160,8 @@ const getProducts =  new Promise((resolve, reject) =>{
 
     const secondData =  new Promise((resolve, reject) =>{
       getProducts.then((res) => {
-        const { products } = res.data;
+        const {products} = res.data;
+        console.log({products})
         if(!localStorage.getItem('products')){ localStorage.setItem('products', JSON.stringify(products)) }
 
         const productsList = $('#gardenia-products');
@@ -138,39 +179,40 @@ const getProducts =  new Promise((resolve, reject) =>{
         productsList.append(productContainerTab)        
 
         products.map((product) => {
-            
-            const productsTab = $('.menu-list-container');
-            const productItem = $([
-                "<div class='menu-list "+ product.category.id +"' data-product='"+ product.id +"' data-category='"+ product.category.id +"'>",
-                    "<div class='item'>",
-                        "<div class='flex'>",
-                            (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-descuento"></i></div>':'',
-                            "<div class='title'>"+ product.name +"</div>",
-                            "<div class='dots'></div>",
-                            (!product.offer)?"<div class='price'>"+ formatterPeso.format(product.price) +"</div>":"<div class='price'>"+ formatterPeso.format(product.price - product.discount) +"<span class='price discount'>"+ formatterPeso.format(product.price) +"</span></div>",
-                            "<div class='price-hide'>"+ product.price +"</div>",
-                            "<div class='measure-hide'>"+ product.content +"</div>",
-                        "</div>",
-                        "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
-                    "</div>",
-                    "<div class='item-icon'>",
-                    "<p>",
-                      "<i class='flaticon-gardenia-trolley-8'></i>",
-                      "<i>"+ product.quantity +"</i>",
-                    "</p>",
-                "</div>",  
-                "</div>",
-            ].join("\n"))
-            productsTab.append(productItem)
-
+            if(product.category){
+              const productsTab = $('.menu-list-container');
+              const productItem = $([
+                  "<div class='menu-list "+ product.category.id +"' data-product='"+ product.id +"' data-category='"+ product.category.id +"'>",
+                      "<div class='item'>",
+                          "<div class='flex'>",
+                              (product.offer)?'<div class="offer-icon"> <i class="flaticon-gardenia-descuento"></i></div>':'',
+                              "<div class='title'>"+ product.name +"</div>",
+                              "<div class='dots'></div>",
+                              (!product.offer)?"<div class='price'>"+ formatterPeso.format(product.price) +"</div>":"<div class='price'>"+ formatterPeso.format(product.price - product.discount) +"<span class='price discount'>"+ formatterPeso.format(product.price) +"</span></div>",
+                              "<div class='price-hide'>"+ product.price +"</div>",
+                              "<div class='measure-hide'>"+ product.content +"</div>",
+                          "</div>",
+                          "<p><i>"+ product.description +"</i> <span> "+ product.content +""+ product.measure +"</span></p>",
+                      "</div>",
+                      "<div class='item-icon'>",
+                      "<p>",
+                        "<i class='flaticon-gardenia-trolley-8'></i>",
+                        "<i>"+ product.quantity +"</i>",
+                      "</p>",
+                  "</div>",  
+                  "</div>",
+              ].join("\n"))
+              productsTab.append(productItem)
+            }
         });
         resolve(true)
 
-      }).catch(()=> reject(false));       
+      }).catch((error)=> { console.log({error}); reject(false)});       
     });
     firstData.then((res) =>{
       if(res){
         secondData.then((res) =>{
+          console.log({res})
           if(res){
             var $grid = $('.menu-list-container').isotope({
               itemSelector: '.menu-list',
@@ -260,6 +302,8 @@ const getProducts =  new Promise((resolve, reject) =>{
           });
 
           }
+        }).catch((error) =>{
+          console.log({error})
         })
       }
     })
