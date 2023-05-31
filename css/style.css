@@ -6629,6 +6629,18 @@ select {
 .progress-wrap svg.progress-circle path {
     stroke: #D6CC80;
 }
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: #1b1b1b;
+    padding: 20px 10px 10px 10px;
+    z-index: 2;
+    width: 100vw;
+    left: 0;
+    -webkit-transition: all 400ms linear;
+    -o-transition: all 400ms linear;
+    transition: all 400ms linear;    
+}
 #gardenia-filters{
  margin: 0;
  display: flex;
@@ -7957,7 +7969,7 @@ color: #1b1b1b;
   top: 28px;
   z-index: 110;
   height: auto;
-  right: calc(50% - 588px);
+  right: calc(50% - 612px);
   display: flex;
   align-items: center;
   justify-content: end;
@@ -13608,6 +13620,7 @@ select {
     -webkit-transform: translateY(0);
     -ms-transform: translateY(0);
     transform: translateY(0);
+    z-index: 111;
 }
 .progress-wrap::after {
     position: absolute;
@@ -13694,13 +13707,19 @@ select {
 .tabs .tab-links ul li.filters:hover i{color: #D4A408;}
 
 .tabs .tab-links ul li.filters:hover  .filters-icon{-webkit-transform: rotate(360deg);transform: rotate(360deg);}
-
+.filters-product .owl-nav {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
 .filters-product.owl-carousel .owl-prev{
     position: absolute;
     left: 0;
 }
 .filters-product.owl-carousel .owl-next{
     rotate: 180deg;
+    position: absolute;
+    right: 0;
 }
 
 .filters-product.owl-carousel .owl-prev:hover span{

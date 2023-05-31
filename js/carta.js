@@ -117,6 +117,37 @@ const getProducts =  new Promise((resolve, reject) =>{
   }
 
 });
+const menu = document.getElementById('sticky');
+const endDiv = document.getElementById('remove-sticky');
+const menuHeight = menu.offsetHeight;
+let menuOffsetTop = menu.getBoundingClientRect().top + window.scrollY;
+let isSticky = false;
+let reachedEnd = false;
+
+function updateMenuOffsetTop() {
+  menuOffsetTop = menu.getBoundingClientRect().top + window.scrollY;
+}
+
+function handleScroll() {
+  const scrollPosition = window.scrollY;
+  const endDivOffsetTop = endDiv.offsetTop - menuHeight;
+
+  if (scrollPosition >= menuOffsetTop && !isSticky && !reachedEnd) {
+    menu.classList.add('sticky');
+    isSticky = true;
+  } else if ((scrollPosition < menuOffsetTop || scrollPosition >= endDivOffsetTop) && isSticky) {
+    menu.classList.remove('sticky');
+    isSticky = false;
+  }
+
+  if (scrollPosition >= endDivOffsetTop) {
+    reachedEnd = true;
+  } else {
+    reachedEnd = false;
+  }
+}
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('resize', updateMenuOffsetTop);
 
   $(function () {
     "use strict";
@@ -127,8 +158,13 @@ const getProducts =  new Promise((resolve, reject) =>{
       scrollTime: 600, // how long (in ms) the animation takes
       activeClass: 'active', // class given to the active nav element
       onPageChange: null, // function(pageIndex) that is called when page is changed
-      topOffset: -20 // offste (in px) for fixed top navigation
+      topOffset: -20 // offset (in px) for fixed top navigation
     });
+
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', updateMenuOffsetTop);
+
     if(localStorage.getItem('cart')){ updateCart(JSON.parse(localStorage.getItem('cart'))) }
 
     let activeCategory = null;
@@ -161,7 +197,6 @@ const getProducts =  new Promise((resolve, reject) =>{
     const secondData =  new Promise((resolve, reject) =>{
       getProducts.then((res) => {
         const {products} = res.data;
-        console.log({products})
         if(!localStorage.getItem('products')){ localStorage.setItem('products', JSON.stringify(products)) }
 
         const productsList = $('#gardenia-products');
@@ -207,12 +242,11 @@ const getProducts =  new Promise((resolve, reject) =>{
         });
         resolve(true)
 
-      }).catch((error)=> { console.log({error}); reject(false)});       
+      }).catch((error)=> {  reject(false)});       
     });
     firstData.then((res) =>{
       if(res){
         secondData.then((res) =>{
-          console.log({res})
           if(res){
             var $grid = $('.menu-list-container').isotope({
               itemSelector: '.menu-list',
